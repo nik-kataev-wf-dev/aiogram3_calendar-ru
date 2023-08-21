@@ -1,4 +1,5 @@
 import calendar
+import locale
 from datetime import datetime, timedelta
 
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
@@ -49,6 +50,8 @@ class SimpleCalendar:
                 )
             ]
         )
+
+        locale.setlocale(locale.LC_ALL, 'ru_RU.UTF-8')
 
         # Second row - Week Days
         markup.append(

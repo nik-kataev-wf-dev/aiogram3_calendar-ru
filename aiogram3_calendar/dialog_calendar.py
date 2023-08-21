@@ -11,7 +11,7 @@ ignore_callback = DialogCalendarCallback(act=DialogCalendarAction.IGNORE, year=-
 
 
 class DialogCalendar:
-    months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    months = ["Янв", "Фев", "Мар", "Апр", "Май", "Июнь", "Июль", "Авг", "Сен", "Окт", "Ноя", "Дек"]
 
     def __init__(self, year: int = datetime.now().year, month: int = datetime.now().month):
         self.year = year
