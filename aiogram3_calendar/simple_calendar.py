@@ -8,6 +8,9 @@ from aiogram.types import CallbackQuery
 from aiogram3_calendar.calendar_types import SimpleCalendarCallback, SimpleCalendarAction, WEEKDAYS
 
 
+locale.setlocale(locale.LC_ALL, 'ru_RU.UTF-8')
+
+
 class SimpleCalendar:
 
     @staticmethod
@@ -21,8 +24,6 @@ class SimpleCalendar:
         :param int month: Month to use in the calendar, if None the current month is used.
         :return: Returns InlineKeyboardMarkup object with the calendar.
         """
-
-        locale.setlocale(locale.LC_ALL, 'ru_RU.UTF-8')
 
         markup = []
         ignore_callback = SimpleCalendarCallback(act=SimpleCalendarAction.IGNORE, year=year, month=month,
