@@ -22,6 +22,8 @@ class SimpleCalendar:
         :return: Returns InlineKeyboardMarkup object with the calendar.
         """
 
+        locale.setlocale(locale.LC_ALL, 'ru_RU.UTF-8')
+
         markup = []
         ignore_callback = SimpleCalendarCallback(act=SimpleCalendarAction.IGNORE, year=year, month=month,
                                                  day=0)  # for buttons with no answer
@@ -50,8 +52,6 @@ class SimpleCalendar:
                 )
             ]
         )
-
-        locale.setlocale(locale.LC_ALL, 'ru_RU.UTF-8')
 
         # Second row - Week Days
         markup.append(
