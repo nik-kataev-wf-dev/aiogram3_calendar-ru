@@ -1,11 +1,13 @@
 from distutils.core import setup
 
+import setuptools
+
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(
   name='aiogram3_calendar_ru',
-  packages=['aiogram3_calendar'],
+  packages=setuptools.find_packages(),
   version='0.2.0',
   license='MIT',
   description='Simple Inline Calendar & Date Selection tool for Aiogram (version 3.4 and upper) Telegram bots',
