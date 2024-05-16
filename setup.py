@@ -15,7 +15,7 @@ setup(
   url='https://github.com/nik-kataev-wf-dev/aiogram3_calendar-ru',
   keywords=['Aiogram', 'Aiogram3' 'Telegram', 'Bots', 'Calendar'],
   install_requires=[
-          'aiogram~=3',
+          'aiogram~=3.4',
       ],
   classifiers=[
     'Development Status :: 3 - Alpha',

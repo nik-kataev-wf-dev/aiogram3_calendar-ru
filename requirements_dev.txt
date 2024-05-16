@@ -1,4 +1,4 @@
-aiogram~=3.0.0rc1
+aiogram~=3.4
 flake8
 pytest
 pytest-cov
