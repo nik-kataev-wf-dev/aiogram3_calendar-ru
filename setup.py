@@ -6,16 +6,16 @@ with open("README.md", "r") as fh:
 setup(
   name='aiogram3_calendar',
   packages=['aiogram3_calendar'],
-  version='0.1.3b',
+  version='0.2.0',
   license='MIT',
   description='Simple Inline Calendar & Date Selection tool for Aiogram (version 3.0.0a12 and upper) Telegram bots',
   long_description=long_description,
-  author='Andrew Nikolabay, Dmytro Yaroshenko',
-  author_email='',
-  url='https://github.com/o-murphy/aiogram3_calendar',
+  author='Kataev Nikita',
+  author_email='nik.kataev00@gmail.com',
+  url='https://github.com/nik-kataev-wf-dev/aiogram3_calendar-ru',
   keywords=['Aiogram', 'Aiogram3' 'Telegram', 'Bots', 'Calendar'],
   install_requires=[
-          'aiogram~=3.0.0b6',
+          'aiogram~=3',
       ],
   classifiers=[
     'Development Status :: 3 - Alpha',
