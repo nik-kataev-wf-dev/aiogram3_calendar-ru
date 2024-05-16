@@ -24,7 +24,7 @@ class DialogCalendar:
         markup = [[  # first row - years
 
             InlineKeyboardButton(
-                text=value,
+                text=str(value),
                 callback_data=DialogCalendarCallback(
                     act=DialogCalendarAction.SET_YEAR,
                     year=value,
@@ -54,7 +54,7 @@ class DialogCalendar:
 
             InlineKeyboardButton(text=" ", callback_data=ignore_callback.pack()),
             InlineKeyboardButton(
-                text=year,
+                text=str(year),
                 callback_data=DialogCalendarCallback(act=DialogCalendarAction.START, year=year, month=-1, day=-1).pack()
             ),
             InlineKeyboardButton(text=" ", callback_data=ignore_callback.pack()),
@@ -79,7 +79,7 @@ class DialogCalendar:
     async def _get_days_kb(self, year: int, month: int):
         markup = [[
             InlineKeyboardButton(
-                text=year,
+                text=str(year),
                 callback_data=DialogCalendarCallback(act=DialogCalendarAction.START, year=year, month=-1, day=-1).pack()
             ),
             InlineKeyboardButton(
@@ -114,17 +114,17 @@ class DialogCalendar:
         if data.act == DialogCalendarAction.IGNORE:
             await query.answer(cache_time=60)
         if data.act == DialogCalendarAction.SET_YEAR:
-            await query.message.edit_reply_markup(await self._get_month_kb(int(data.year)))
+            await query.message.edit_reply_markup(reply_markup=await self._get_month_kb(int(data.year)))
         if data.act == DialogCalendarAction.PREV_YEARS:
             new_year = int(data.year) - 5
-            await query.message.edit_reply_markup(await self.start_calendar(new_year))
+            await query.message.edit_reply_markup(reply_markup=await self.start_calendar(new_year))
         if data.act == DialogCalendarAction.NEXT_YEARS:
             new_year = int(data.year) + 5
-            await query.message.edit_reply_markup(await self.start_calendar(new_year))
+            await query.message.edit_reply_markup(reply_markup=await self.start_calendar(new_year))
         if data.act == DialogCalendarAction.START:
-            await query.message.edit_reply_markup(await self.start_calendar(int(data.year)))
+            await query.message.edit_reply_markup(reply_markup=await self.start_calendar(int(data.year)))
         if data.act == DialogCalendarAction.SET_MONTH:
-            await query.message.edit_reply_markup(await self._get_days_kb(int(data.year), int(data.month)))
+            await query.message.edit_reply_markup(reply_markup=await self._get_days_kb(int(data.year), int(data.month)))
         if data.act == DialogCalendarAction.SET_DAY:
             await query.message.delete_reply_markup()  # removing inline keyboard
             return_data = True, datetime(int(data.year), int(data.month), int(data.day))
